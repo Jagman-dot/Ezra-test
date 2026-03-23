@@ -22,3 +22,8 @@ export const TEST_CARDS = {
 export const SCAN_PRICE = {
     mri: '$999'
 }
+
+export const LOGIN_INFO = {
+    email: 'Jagman.dhaliwal@gmail.com',
+    password: 'Jagman89800!'
+}
