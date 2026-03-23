@@ -23,6 +23,7 @@ test.describe('Booking Scans', () => {
     await loginPage.loginToApplication(LOGIN_INFO.email, LOGIN_INFO.password);
   })
 
+
   test('User is able book MRI Scan ', async ({ page }) => {
 
     await dashboardPage.validateTitle(dashboardPage.pageTitle);
@@ -39,6 +40,5 @@ test.describe('Booking Scans', () => {
     await bookingFlowPage.striplePayment();
     await bookingFlowPage.clickSubmitButton();
     await bookingFlowPage.validateConfirmationPage();
-  
   });
 })

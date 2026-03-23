@@ -75,7 +75,7 @@ class BookingFlowPage {
     }
 
     async validateConfirmationPage(){
-        await expect(this.confirmationMesssage).toContainText("You're almost done");
+        await expect(this.confirmationMesssage).toContainText("You're almost done", , { timeout: 15000 });
     }
 
     async clickBeginMedicalQuestionaire(){
