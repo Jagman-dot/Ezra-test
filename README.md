@@ -38,3 +38,19 @@ Use this command for running headed mode and to watch test execution
 ```
 npx playwright test bookingE2E.spec.js --project"chromium" --headed
 ```
+# Walk Through
+
+There are three folders, its a pretty simple Page-Object Model framework in the pages I have added all of the locator and methods to perform actions we export those into the spec file and create a new object, and call the methods there. Which increases the readability and use DRY principle. Don't Repeat Yourself, if any of the locators change we just need to update them once in the constructor and all of the references in the specs will be resolved.
+```
+- pages
+  - LoginPage.js
+  - DashboardPage.js
+  - BookingFlowPage.js
+  - medicalQuestionairePage.js
+- support
+  - testData.js
+- tests
+  - BookingE2E.spec.js
+```
+
+  
