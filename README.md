@@ -26,11 +26,15 @@ cd ezra-test-assessment
 npm install
 ```
 ### Environment Configuration:
+I have added my user name and password to the .evn file, this can be stored in testData.js file as well, but I signed up with my email and a password that I use often, and didn't want to add it in there.
+
+There is .env examples file that I added to the repo user that as a baseline for the .env file.
 ```
 Create a .env file in the root directory (if required by your implementation) to store sensitive data like your test credentials.
 ```
 
 ### Running Test
+Use this command for running headed mode and to watch test execution
 ```
 npx playwright test bookingE2E.spec.js --project"chromium" --headed
 ```
