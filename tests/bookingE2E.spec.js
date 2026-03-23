@@ -2,12 +2,15 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { DashboardPage } from '../pages/DashboardPage';
 import {BookingFlowPage} from '../pages/BookingFlowPage';
+import { MeddicalQuestionairePage } from '../pages/medicalQuestionairePage'; 
+
 
 
 test('User is able book MRI Scan ', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const dashboardPage = new DashboardPage(page);
   const bookingFlowPage = new BookingFlowPage(page);
+  const medicalQuestionairePage = new MeddicalQuestionairePage(page);
 
   await page.goto(loginPage.url, { waitUntil: 'load' });
   await loginPage.validateTitle(loginPage.pageTitle);
@@ -29,13 +32,12 @@ test('User is able book MRI Scan ', async ({ page }) => {
   await bookingFlowPage.validateConfirmationPage();
   await bookingFlowPage.clickBeginMedicalQuestionaire()
 
-  
+  await medicalQuestionairePage.validatePhysicianImage();
+  await medicalQuestionairePage.clickNextButton();
+  await medicalQuestionairePage.clickMySelfOption();
+  await medicalQuestionairePage.clickNextButton();
+  // ... continue with rest 
 });
 
-// test('User login on App', async ({ page }) => {
-//   const loginPage = new LoginPage(page);
-//   await page.goto(loginPage.url, { waitUntil: 'load' });
-//   await loginPage.validateTitle(loginPage.pageTitle);
-//   await loginPage.loginToApplication("Jagman.dhaliwal@gmail.com", "Jagman89800!");
-// });
+
 
