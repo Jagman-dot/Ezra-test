@@ -13,14 +13,14 @@ class BookingFlowPage {
         this.continueButton = page.getByTestId('select-plan-submit-btn');
         this.locationCards = page.locator('.location-card');
         this.firstAvailable = page.locator('.vuecal__cell:not(.vuecal__cell--disabled)').first();
-        this.firstTimeAvailable = page.locator("//div[contains(@class, 'appointments__individual-appointment') and not(contains(@style, 'display: none'))]");
+        this.firstTimeAvailable = page.locator('.appointments__individual-appointment').filter({ visible: true });
         this.submitButton = page.locator('[data-test="submit"]');
-        this.stripeFrame = this.page.frameLocator('iframe[title="Secure payment input frame"]');
+        this.stripeFrame = page.frameLocator('iframe[title="Secure payment input frame"] >> visible=true').first();
         this.previousCard = this.stripeFrame.getByTestId('payment-details-content-info');
         this.cardNumber = this.stripeFrame.locator('input[name="number"]');
-        this.expiryInput = stripeFrame.locator('input[name="expiry"]');
-        this.cvv = stripeFrame.locator('input[name="cvc"]');
-        this.postalCode = stripeFrame.locator('input[name="postalCode"]');
+        this.expiryInput = this.stripeFrame.locator('input[name="expiry"]');
+        this.cvv = this.stripeFrame.locator('input[name="cvc"]');
+        this.postalCode = this.stripeFrame.locator('input[name="postalCode"]');
         this.priceLocator = this.page.locator('p.b1 span.h4');
         this.confirmationMesssage = this.page.locator('.confirmation-msg__title');
         this.beginQuestionnaireButton = this.page.getByRole('button', { name: 'Begin Medical Questionnaire' });
@@ -51,7 +51,7 @@ class BookingFlowPage {
     }
 
     async clickFirstTimeAvailable() {
-        await this.firstTimeAvailable.click();
+        await this.firstTimeAvailable.first().click();
     }
 
     async clickSubmitButton() {
@@ -60,12 +60,12 @@ class BookingFlowPage {
 
     async striplePayment(){
         // checking to see if there is a previous card on file
-        if(this.previousCard.count() > 0){
+        if(await this.previousCard.count() > 0){
             console.log('Card saved');
         } else {
             console.log('No card on file');
-            await this.cardNumber.pressSequentially(TEST_CARDS.SUCCESS_VISA.number);
-            await this.expiryInput.pressSequentially(TEST_CARDS.SUCCESS_VISA.expiry);
+            await this.cardNumber.fill(TEST_CARDS.SUCCESS_VISA.number);
+            await this.expiryInput.fill(TEST_CARDS.SUCCESS_VISA.expiry);
             await this.cvv.fill(TEST_CARDS.SUCCESS_VISA.cvc);
             await this.postalCode.fill(TEST_CARDS.SUCCESS_VISA.zip);
         }
