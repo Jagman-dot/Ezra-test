@@ -29,3 +29,8 @@ npm install
 ```
 Create a .env file in the root directory (if required by your implementation) to store sensitive data like your test credentials.
 ```
+
+### Running Test
+```
+npx playwright test bookingE2E.spec.js --project"chromium" --headed
+```
