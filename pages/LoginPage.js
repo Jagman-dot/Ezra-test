@@ -14,7 +14,6 @@ class LoginPage {
     }
 
     async validateTitle(pageTitle) {
-
         await expect(this.page).toHaveTitle(pageTitle);
     }
 
@@ -24,7 +23,6 @@ class LoginPage {
         await this.emailField.fill(userName);
         await this.passwordField.fill(password);
         await this.submitButton.click();
-        await this.page.waitForTimeout(5000);
     }
 
     
