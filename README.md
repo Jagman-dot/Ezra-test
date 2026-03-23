@@ -57,3 +57,5 @@ View the CI/CD reports here
 ```
 https://github.com/Jagman-dot/Ezra-test/actions/workflows/playwright.yml
 ````
+Previous run results in CI / CD 
+<img width="1622" height="999" alt="image" src="https://github.com/user-attachments/assets/27932f96-7330-44d6-ac78-c3efae85e08c" />
