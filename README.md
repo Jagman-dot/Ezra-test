@@ -15,14 +15,17 @@ I decided to automate an E2E test of the booking flow of an MRI Scan. I like to 
 
 # Set up 
 
-1. Clone this repo
+### Clone this repo
+```
 git clone <your-repo-link>
 cd ezra-test-assessment
+```
 
-2. Install dependencies:
-
+### Install dependencies
+```
 npm install
-
-4. Environment Configuration:
-
+```
+### Environment Configuration:
+```
 Create a .env file in the root directory (if required by your implementation) to store sensitive data like your test credentials.
+```
