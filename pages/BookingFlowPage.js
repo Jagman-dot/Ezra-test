@@ -56,6 +56,7 @@ class BookingFlowPage {
     }
 
     async clickSubmitButton() {
+        await expect(this.submitButton).toBeEnabled();
         await this.submitButton.click();
     }
 
@@ -75,7 +76,7 @@ class BookingFlowPage {
     }
 
     async validateConfirmationPage(){
-        await expect(this.confirmationMesssage).toContainText("You're almost done", , { timeout: 15000 });
+        await expect(this.confirmationMesssage).toContainText("You're almost done", { timeout: 15000 });
     }
 
     async clickBeginMedicalQuestionaire(){
