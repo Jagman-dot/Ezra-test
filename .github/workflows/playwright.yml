@@ -43,11 +43,7 @@ jobs:
       run: npx playwright install-deps chromium
 
     - name: Run Playwright tests
-      run: npx playwright test
-      env:
-        # If you are using secrets for your Ezra login:
-        USER_EMAIL: ${{ secrets.USER_EMAIL }}
-        USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+      run: npx playwright test --project=chromium
 
     - uses: actions/upload-artifact@v4
       if: always()

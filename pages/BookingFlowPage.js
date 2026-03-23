@@ -39,6 +39,7 @@ class BookingFlowPage {
     }
 
     async clickContinue() {
+        await expect(this.continueButton).toBeEnabled();
         await this.continueButton.click();
     }
 
@@ -64,6 +65,7 @@ class BookingFlowPage {
             console.log('Card saved');
         } else {
             console.log('No card on file');
+            await expect(this.cardNumber).toBeVisible();
             await this.cardNumber.fill(TEST_CARDS.SUCCESS_VISA.number);
             await this.expiryInput.fill(TEST_CARDS.SUCCESS_VISA.expiry);
             await this.cvv.fill(TEST_CARDS.SUCCESS_VISA.cvc);
