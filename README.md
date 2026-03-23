@@ -53,4 +53,7 @@ There are three folders, its a pretty simple Page-Object Model framework in the 
   - BookingE2E.spec.js
 ```
 
-  
+View the CI/CD reports here
+```
+https://github.com/Jagman-dot/Ezra-test/actions/workflows/playwright.yml
+````
