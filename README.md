@@ -13,6 +13,10 @@ I decided to automate an E2E test of the booking flow of an MRI Scan. I like to 
 
 - At my current company we are using BDD framwork with cucumber and there is some value to this, as feature files are written in plan english and Test cases and feature match directly.(comes with trade offs)
 
+- With keeping **scalalbility** in mind, I would create tests that are not depended on one another. With this mindset we can aim for Parallelization and speed up test execution, and not be a bottle neck for CI / CD.   
+
+- While playwright is great for UI validations and automating E2E, in the future I would also focus on performance testing as well. I can us k6 to simulate 500 users hitting up APIs, while that is happening we can also trigger playwright UI test to make sure the load from those users is not making any impact on the E2E test.
+
 # Set up 
 
 ### Clone this repo
@@ -26,6 +30,9 @@ cd ezra-test-assessment
 npm install
 ```
 ### Environment Configuration:
+
+I haved changed my password, and added it to the testData.js file, the botttom can ignored now.
+
 I have added my user name and password to the .evn file, this can be stored in testData.js file as well, but I signed up with my email and a password that I use often, and didn't want to add it in there.
 
 There is .env examples file that I added to the repo user that as a baseline for the .env file.
